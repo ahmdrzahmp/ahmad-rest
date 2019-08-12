@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!--///////////////SUB////////////////-->
+
+<section class="sub-2">
+    <div class="sub-2__cover">
+        <div class="sub-2__top">
+            <h1 class="sub-2__heading">
+                all our food
+            </h1>
+        </div>
+        <div class="sub-2__bottom">
+            <p class="sub-2__paragraph">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dolorem, exercitationem laudantium omnis provident quaerat reprehenderit voluptatem? Alias autem fuga iste labore laborum minus omnis pariatur perferendis reprehenderit. Aspernatur, sapiente.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!--///////////////FOOD////////////-->
+
+<section class="food">
+    <div class="food__back">
+        <div class="food__bottom food__bottom-m">
+            {% if listings %}
+                {% for listing in listings %}
+                    <div class="food__card">
+                        <img src="{{ listing.photo_main.url }}" alt="" class="food__img">
+                        <h1 class="food__name">{{ listing.title }}</h1>
+                        <hr class="hr">
+                        <p class="food__paragraph">
+                            Time: {{ listing.list_date }}
+                        </p>
+                        <p class="food__paragraph">
+                            price: ${{ listing.price }}
+                        </p>
+                        <hr class="hr">
+                        <div class="food__button">
+                            <a href="#" class="food__btn">Buy Now</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

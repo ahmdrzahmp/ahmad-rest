@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<!--////////////////////////////SUB////////////////////////-->
+
+<section class="sub">
+    <div class="sub__cover">
+        <div class="sub__content">
+            <div class="sub__top">
+                <h2 class="sub__heading">
+                    welcome to rest
+                </h2>
+                <p class="sub__paragraph">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad deserunt iure quae quis voluptas? Adipisci, animi consectetur consequuntur deleniti eaque earum expedita illum, laborum, numquam obcaecati pariatur perferendis quis recusandae?
+                </p>
+            </div>
+            <form action="{% url 'search' %}" method="GET">
+                <div class="sub__bottom">
+                    <label>
+                        <input name="q" type="text" class="sub__input" placeholder="Food">
+                    </label>
+                </div>
+                <button class="sub__button1" type="submit">submit</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+<!--/////////////////////////////FOOD/////////////////////////-->
+
+    {% include 'partials/_alerts.html' %}
+
+<section class="food">
+    <div class="food__back">
+        <div class="food__bottom food__bottom-m">
+            <div class="food__card">
+                <img src="{% static 'img/chickan.jpg' %}" alt="" class="food__img">
+                <h1 class="food__name">chicken</h1>
+                <hr class="hr">
+                <p class="food__paragraph">
+                    Time: 10M
+                </p>
+                <p class="food__paragraph">
+                    100$
+                </p>
+                <hr class="hr">
+                <div class="food__button">
+                    <a href="#" class="food__btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="food__card">
+                <img src="{% static 'img/berger.jpg' %}" alt="" class="food__img">
+                <h1 class="food__name">burger</h1>
+                <hr class="hr">
+                <p class="food__paragraph">
+                    Time: 10M
+                </p>
+                <p class="food__paragraph">
+                    100$
+                </p>
+                <hr class="hr">
+                <div class="food__button">
+                    <a href="#" class="food__btn">Buy Now</a>
+                </div>
+            </div>
+            <div class="food__card">
+                <img src="{% static 'img/steak.jpg' %}" alt="" class="food__img">
+                <h1 class="food__name">steak</h1>
+                <hr class="hr">
+                <p class="food__paragraph">
+                    Time: 10M
+                </p>
+                <p class="food__paragraph">
+                    100$
+                </p>
+                <hr class="hr">
+                <div class="food__button">
+                    <a href="#" class="food__btn">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="button">
+        <a href="Food.html" class="button__btn">More Food</a>
+    </div>
+</section>
+
+<!--////////////////////MAIN///////////////////-->
+
+<section class="main">
+    <div class="main__cover">
+        <div class="main__col">
+            <div class="main__svg">
+                <svg class="main__icon">
+                    <use xlink:href="{% static 'img/sprite.svg#icon-user-tie' %}"></use>
+                </svg>
+            </div>
+            <div class="main__text">
+                <h1 class="main__heading">
+                    Consulting Services
+                </h1>
+                <hr class="hr-2">
+                <p class="main__paragraph">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur hic dignissimos ratione ea quae.
+                </p>
+            </div>
+        </div>
+        <div class="main__col">
+                <div class="main__svg">
+                    <svg class="main__icon">
+                        <use xlink:href="{% static 'img/sprite.svg#icon-user-tie' %}"></use>
+                    </svg>
+                </div>
+                <div class="main__text">
+                    <h1 class="main__heading">
+                        Consulting Services
+                    </h1>
+                    <hr class="hr-2">
+                    <p class="main__paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur hic dignissimos ratione ea quae.
+                    </p>
+                </div>
+            </div>
+        <div class="main__col">
+                    <div class="main__svg">
+                        <svg class="main__icon">
+                            <use xlink:href="{% static 'img/sprite.svg#icon-user-tie' %}"></use>
+                        </svg>
+                    </div>
+                    <div class="main__text">
+                        <h1 class="main__heading">
+                            Consulting Services
+                        </h1>
+                        <hr class="hr-2">
+                        <p class="main__paragraph">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur hic dignissimos ratione ea quae.
+                        </p>
+                    </div>
+                </div>
+    </div>
+</section>
+
+{% endblock %}

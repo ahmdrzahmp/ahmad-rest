@@ -1,0 +1,66 @@
+{% load static %}
+<!--/////////////////NAVBAR///////////////////-->
+
+<section class="nav">
+    <div class="nav__left">
+        <a
+                {% if '/' == request.path %}
+                 href="{% url 'index' %}" class=" active-1"
+                {% else %}
+                    href="{% url 'index' %}" class="nav__per"
+                {% endif %}
+        >
+               HOME</a>
+        <a
+                {% if 'food' in request.path %}
+                href="{% url 'food' %}" class="active-1"
+                {% else %}
+                href="{% url 'food' %}" class="nav__per"
+                {% endif %}
+                >FOOD</a>
+        <a href="#" class="nav__per">ABOUT US</a>
+        <a href="#" class="nav__per">CONTACT US</a>
+    </div>
+
+    <div class="nav__right">
+        <div class="navigation">
+                {% if user.is_authenticated %}
+                   <h1 class="nav__heading"><a class="nav__link mr">Welcome {{ user.username }}</a></h1>
+                   <h1 class="nav__heading"><a href="javascript:{document.getElementById('logout').submit()}" class="nav__link" >Logout </a>
+                       <form action="{% url 'logout' %}" method="POST" id="logout">
+                           {% csrf_token %}
+                           <input type="hidden">
+                       </form></h1>
+                {% else %}
+                <div class="navigation__left">
+                    <svg class="nav__icon">
+                        <use xlink:href="img/sprite.svg#icon-user-tie"></use>
+                    </svg>
+                    <h1 class="nav__heading">
+                        <a
+                                {% if 'sign-in' in request.path %}
+                                     href="{% url 'signin' %}" class="active-1"
+                                {% else %}
+                                      href="{% url 'signin' %}" class="nav__link"
+                                {% endif %}
+                        >sign in</a>
+                        </h1>
+                </div>
+                <div class="navigation__right">
+                    <svg class="nav__icon">
+                        <use xlink:href="img/sprite.svg#icon-enter"></use>
+                    </svg>
+                  <h1 class="nav__heading">
+                        <a
+                             {% if 'login' in request.path %}
+                                 href="{% url 'login' %}" class="active-1"
+                             {% else %}
+                                  href="{% url 'login' %}" class="nav__link"
+                             {% endif %}
+                        >login</a>
+                    </h1>
+                </div>
+                {% endif %}
+        </div>
+    </div>
+</section>

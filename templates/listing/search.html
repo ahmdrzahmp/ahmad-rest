@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!--////////////////////////////SUB////////////////////////-->
+
+{#<section class="sub">#}
+{#    <div class="sub__cover">#}
+{#        <div class="sub__content">#}
+{#            <div class="sub__top">#}
+{#                <h2 class="sub__heading">#}
+{#                    welcome to rest#}
+{#                </h2>#}
+{#                <p class="sub__paragraph">#}
+{#                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad deserunt iure quae quis voluptas? Adipisci, animi consectetur consequuntur deleniti eaque earum expedita illum, laborum, numquam obcaecati pariatur perferendis quis recusandae?#}
+{#                </p>#}
+{#            </div>#}
+{#            <div class="sub__bottom">#}
+{#                <select name="food" class="sub__input">#}
+{#                    <option selected="true" disabled="disabled">Food (Any)</option>#}
+{#                    {% for key,value in food_choices.items %}#}
+{#                        <option value="{{ key }}">{{ value }}</option>#}
+{#                    {% endfor %}#}
+{#                </select>#}
+{#            </div>#}
+{#            <div class="sub__button">#}
+{#                <a href="#" class="sub__btn btn__primary">submit</a>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#    </div>#}
+{#</section>#}
+
+
+
+<!--///////////////FOOD////////////-->
+
+<section class="food">
+    <div class="food__back">
+        <div  class="food__bottom food__bottom-m">
+            {% if listings %}
+                {% for listing in listings %}
+                    <div class="food__card">
+                        <img src="{{ listing.photo_main.url }}" alt="" class="food__img">
+                        <h1 class="food__name">{{ listing.title }}</h1>
+                        <hr class="hr">
+                        <p class="food__paragraph">
+                            Time: {{ listing.list_date }}
+                        </p>
+                        <p class="food__paragraph">
+                            price: ${{ listing.price }}
+                        </p>
+                        <hr class="hr">
+                        <div class="food__button">
+                            <a href="#" class="food__btn">Buy Now</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h1>no food</h1>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

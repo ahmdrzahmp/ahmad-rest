@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="sign">
+    <div class="sign__cover">
+        <div class="sign__top">
+            <h1 class="sign__heading">Register</h1>
+        </div>
+        <div class="sign__bottom">
+            {% include 'partials/_alerts.html' %}
+             <form action="{% url 'signin' %}" method="POST">
+                 {% csrf_token %}
+                <p class="sign__paragraph">
+                    First Name
+                </p>
+                <input type="text" name="first_name" class="sign__input">
+
+                <p class="sign__paragraph">
+                    Last Name
+                </p>
+                <input type="text" name="last_name" class="sign__input">
+
+                <p class="sign__paragraph">
+                    User Name
+                </p>
+                <input type="text" name="username" class="sign__input">
+
+                <p class="sign__paragraph">
+                    Email
+                </p>
+                <input type="email" name="email" class="sign__input">
+
+                <p class="sign__paragraph">
+                    Password
+                </p>
+                <input type="password" name="password" class="sign__input">
+
+                <p class="sign__paragraph">
+                    Confirm Password
+                </p>
+                <input type="password" name="password2b.css" class="sign__input">
+
+            <button type="submit" class="sign__btn2">Register</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
