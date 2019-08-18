@@ -4,13 +4,13 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from zeep import Client
 
-MERCHANT = 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'
+MERCHANT = 'ZP.740649.1'
 client = Client('https://www.zarinpal.com/pg/services/WebGate/wsdl')
 amount = 1000  # Toman / Required
 description = "توضیحات مربوط به تراکنش را در این قسمت وارد کنید"  # Required
 email = 'email@example.com'  # Optional
 mobile = '09123456789'  # Optional
-CallbackURL = 'https://localhost:8000/zarinpal/verify/'# Important: need to edit for realy server.
+CallbackURL = 'https://127.0.0.1:8000/zarinpal/verify/'# Important: need to edit for realy server.
 
 def send_request(request):
     result = client.service.PaymentRequest(MERCHANT, amount, description, email, mobile, CallbackURL)
